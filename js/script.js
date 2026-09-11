@@ -56,15 +56,29 @@
   /* ---------- Mobile menu ---------- */
   const navToggle = document.getElementById("navToggle");
   const navLinks = document.getElementById("navLinks");
+  const navMask = document.getElementById("navMask");
+
+  function setMenu(open) {
+    navLinks.classList.toggle("nav__links--open", open);
+    navMask.classList.toggle("show", open);
+    nav.classList.toggle("nav--menu", open);
+    navToggle.setAttribute("aria-label", open ? "Закрити меню" : "Відкрити меню");
+    if (open) {
+      navToggle.setAttribute("aria-expanded", "true");
+    } else {
+      navToggle.removeAttribute("aria-expanded");
+    }
+  }
 
   navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("nav__links--open");
+    setMenu(!navLinks.classList.contains("nav__links--open"));
   });
 
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("nav__links--open");
-    });
+  navMask.addEventListener("click", () => setMenu(false));
+
+  navLinks.addEventListener("click", (e) => {
+    if (e.target.closest(".theme-toggle")) return;
+    setMenu(false);
   });
 
   /* ---------- Reveal on scroll ---------- */
@@ -329,6 +343,7 @@
         { text: "Власну комп'ютерну гру", point: "unity" },
         { text: "Красивий сайт для друзів або школи", point: "web" },
         { text: "Програму, яка все рахує сама", point: "python" },
+        { text: "Додаток або бота за допомогою штучного інтелекту", point: "vibe" },
         { text: "Поки не знаю, готовий(а) спробувати все", point: "python" },
       ],
     },
@@ -338,6 +353,7 @@
         { text: "Самому(самій), у своєму темпі", point: "python" },
         { text: "Показувати результат іншим", point: "web" },
         { text: "Граючись і експериментуючи", point: "unity" },
+        { text: "Творити нове разом зі штучним інтелектом", point: "vibe" },
       ],
     },
     {
@@ -346,6 +362,7 @@
         { text: "Відразу бачити готовий результат", point: "web" },
         { text: "Розв'язувати задачі та шукати логіку", point: "python" },
         { text: "Творити, рухатися, оживляти героїв", point: "unity" },
+        { text: "Швидко перетворювати ідеї в робочі програми", point: "vibe" },
       ],
     },
     {
@@ -371,6 +388,10 @@
       title: "Ігри на Unity",
       text: "Твоє покликання - створювати світи. Разом розробимо 2D-гру на Unity з C#: свій персонаж, рівні, механіки та справді грабельний результат.",
     },
+    vibe: {
+      title: "Вайб кодинг",
+      text: "Тобі подобається творити швидко. Навчимось формулювати ідеї, писати зрозумілі запити для штучного інтелекту та перетворювати їх у справжні програми, розуміючи код.",
+    },
   };
 
   const quizEl = document.getElementById("quiz");
@@ -386,7 +407,7 @@
     const quizResultText = document.getElementById("quizResultText");
     const quizRestart = document.getElementById("quizRestart");
 
-    let quizState = { index: 0, scores: { python: 0, web: 0, unity: 0 } };
+    let quizState = { index: 0, scores: { python: 0, web: 0, unity: 0, vibe: 0 } };
 
     function renderQuiz() {
       const i = quizState.index;
@@ -440,7 +461,7 @@
     });
 
     quizRestart.addEventListener("click", () => {
-      quizState = { index: 0, scores: { python: 0, web: 0, unity: 0 } };
+      quizState = { index: 0, scores: { python: 0, web: 0, unity: 0, vibe: 0 } };
       renderQuiz();
     });
 

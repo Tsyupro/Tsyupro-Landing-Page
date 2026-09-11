@@ -44,10 +44,11 @@
         </button>
         <button class="btn btn--small" data-open-modal>Написати мені</button>
       </nav>
-      <button class="nav__burger" id="navToggle" aria-label="Відкрити меню">
+<button class="nav__burger" id="navToggle" aria-label="Відкрити меню">
         <span></span><span></span><span></span>
       </button>
     </div>
+    <div class="nav__mask" id="navMask" aria-hidden="true"></div>
   </header>
 
   <section class="hero" id="hero">
@@ -98,7 +99,8 @@
         <span class="marquee__item">Unity</span><span class="marquee__sep">•</span>
         <span class="marquee__item">Алгоритми</span><span class="marquee__sep">•</span>
         <span class="marquee__item">Логіка</span><span class="marquee__sep">•</span>
-        <span class="marquee__item">Розробка ігор</span>
+        <span class="marquee__item">Розробка ігор</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">Вайб кодинг</span>
       </span>
       <span class="marquee__group">
         <span class="marquee__item">Python</span><span class="marquee__sep">•</span>
@@ -109,7 +111,8 @@
         <span class="marquee__item">Unity</span><span class="marquee__sep">•</span>
         <span class="marquee__item">Алгоритми</span><span class="marquee__sep">•</span>
         <span class="marquee__item">Логіка</span><span class="marquee__sep">•</span>
-        <span class="marquee__item">Розробка ігор</span>
+        <span class="marquee__item">Розробка ігор</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">Вайб кодинг</span>
       </span>
     </div>
   </div>
@@ -221,6 +224,19 @@
             <li>Вік: від 11 років</li>
           </ul>
         </article>
+        <article class="card reveal">
+          <div class="card__icon" aria-hidden="true">AI</div>
+          <h3>Вайб кодинг</h3>
+          <p>
+            Створення програм за допомогою штучного інтелекту: описуєш ідею словами,
+            а ШІ допомагає її реалізувати. Вчимося грамотно писати запити, читати
+            та розуміти згенерований код і доводити проєкти до кінця.
+          </p>
+          <ul class="card__list">
+            <li>Практика з сучасними AI-інструментами</li>
+            <li>Вік: від 13 років</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
@@ -296,7 +312,7 @@
         </article>
         <article class="price reveal">
           <h3 class="price__name">Разове заняття</h3>
-          <div class="price__amount">400<span class="price__per">грн / 60 хв</span></div>
+          <div class="price__amount">550<span class="price__per">грн / 60 хв</span></div>
           <ul class="price__features">
             <li>Програма під одну дитину</li>
             <li>Заняття в Google Meet / Zoom</li>
@@ -306,30 +322,47 @@
           <button class="btn btn--primary price__btn" data-open-modal>Записатися</button>
         </article>
         <article class="price reveal">
-          <h3 class="price__name">Пакет 4 заняття</h3>
-          <div class="price__amount">1500<span class="price__per">грн</span></div>
+<h3 class="price__name">Пакет 4 заняття</h3>
+          <div class="price__amount">2000<span class="price__per">грн</span></div>
           <ul class="price__features">
-            <li>≈ 375 грн за заняття</li>
-            <li>Економія 100 грн</li>
+            <li>500 грн за заняття</li>
+            <li>Економія 200 грн</li>
             <li>Зручний графік на місяць</li>
           </ul>
           <button class="btn btn--primary price__btn" data-open-modal>Записатися</button>
         </article>
         <article class="price price--popular reveal">
           <span class="price__badge">Популярний</span>
-          <h3 class="price__name">Пакет 8 занять</h3>
-          <div class="price__amount">2800<span class="price__per">грн</span></div>
+<h3 class="price__name">Пакет 8 занять</h3>
+          <div class="price__amount">3600<span class="price__per">грн</span></div>
           <ul class="price__features">
-            <li>≈ 350 грн за заняття</li>
-            <li>Економія 400 грн</li>
+            <li>450 грн за заняття</li>
+            <li>Економія 800 грн</li>
             <li>Стабільний розклад на 2 місяці</li>
             <li>Проміжний звіт для батьків</li>
           </ul>
-          <button class="btn btn--primary price__btn" data-open-modal>Записатися</button>
+<button class="btn btn--primary price__btn" data-open-modal>Записатися</button>
+        </article>
+        <article class="price price--wide price--gradient reveal">
+          <span class="price__badge">Повний курс</span>
+          <div class="price__text">
+            <h3 class="price__name">Повний курс: 24 заняття</h3>
+            <ul class="price__features">
+              <li>Системна програма одного напрямку з нуля до результату</li>
+              <li>≈ 3 місяці занять: два заняття на тиждень</li>
+              <li>Особистий план, проміжні звіти для батьків</li>
+              <li>Готовий проєкт у портфоліо на випуску</li>
+            </ul>
+          </div>
+          <div class="price__buy">
+            <div class="price__amount">9600<span class="price__per">грн · 400 грн/заняття</span></div>
+            <button class="btn btn--primary price__btn" data-open-modal>Записатися</button>
+          </div>
         </article>
       </div>
       <p class="pricing__note">
-        Оплата пакетом наперед вигідніша: 4 заняття - 1500 грн, 8 занять - 2800 грн. Пробне заняття безкоштовне.
+        Оплата пакетом наперед вигідніша: 4 заняття - 2000 грн, 8 занять - 3600 грн,
+        повний курс 24 заняття - 9600 грн. Пробне заняття безкоштовне.
       </p>
     </div>
   </section>
@@ -482,8 +515,9 @@
         <details class="faq__item reveal">
           <summary>Скільки коштують заняття?</summary>
           <p>
-            Разове заняття - 400 грн за 60 хвилин. Оплата пакетом вигідніша:
-            4 заняття - 1500 грн, 8 занять - 2800 грн. Пробне заняття безкоштовне.
+Разове заняття - 550 грн за 60 хвилин. Оплата пакетом вигідніша:
+            4 заняття - 2000 грн, 8 занять - 3600 грн,
+            повний курс 24 заняття - 9600 грн. Пробне заняття безкоштовне.
           </p>
         </details>
         <details class="faq__item reveal">
