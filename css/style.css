@@ -810,6 +810,16 @@ body {
   margin-bottom: 16px;
 }
 
+.card__icon svg {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.25s ease;
+}
+
+.card:hover .card__icon svg {
+  transform: scale(1.15) rotate(-5deg);
+}
+
 .card h3,
 .card p,
 .card .card__list {
