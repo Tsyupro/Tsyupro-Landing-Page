@@ -203,7 +203,7 @@
   const typedOut = document.getElementById("typedOut");
   const phrases = [
     "print('навчаю з інтересом')",
-    "василь викладає: Python • Web • Unity",
+    "василь викладає: Python • Web • Unity • Вайб кодинг",
     "перше заняття - безкоштовно",
     "напишіть мені - і почнемо",
   ];
