@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Цюпер Василь - викладач програмування для школярів</title>
+  <meta name="description" content="Індивідуальні онлайн-заняття програмуванням для школярів: Python, веб-розробка, розробка ігор на Unity.">
+  <meta name="theme-color" content="#0f1117">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Цюпер Василь - програмування для школярів">
+  <meta property="og:description" content="Python, веб-розробка та ігри на Unity для дітей 4-11 класів. Перше заняття безкоштовно.">
+  <meta property="og:url" content="https://example.com/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__logo">ВЦ</span>
+      <span class="preloader__bar"><i></i></span>
+    </div>
+  </div>
+
+  <div class="progress" id="progressBar" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <nav class="nav__links" id="navLinks">
+        <a href="#about">Про мене</a>
+        <a href="#directions">Напрямки</a>
+        <a href="#pricing">Тарифи</a>
+        <a href="#how">Як проходить</a>
+        <a href="#reviews">Відгуки</a>
+        <a href="#faq">FAQ</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Перемкнути тему">
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="btn btn--small" data-open-modal>Написати мені</button>
+      </nav>
+      <button class="nav__burger" id="navToggle" aria-label="Відкрити меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero__orbs" aria-hidden="true">
+      <span class="hero__orb hero__orb--one"></span>
+      <span class="hero__orb hero__orb--two"></span>
+    </div>
+    <div class="hero__grid" aria-hidden="true"></div>
+    <canvas class="hero__rain" id="codeRain" aria-hidden="true"></canvas>
+    <div class="container hero__inner">
+      <div class="hero__badge hero-anim">Онлайн заняття</div>
+      <h1 class="hero-anim"><span class="hero__name">Цюпер Василь</span></h1>
+      <p class="hero__subtitle hero-anim">
+        Викладач програмування для школярів 4-11 класів.<br>
+        Допоможу зробити перші кроки в IT легко та з інтересом.
+      </p>
+
+      <div class="hero__terminal hero-anim" aria-hidden="true">
+        <div class="terminal__bar">
+          <span class="terminal__dots"><i></i><i></i><i></i></span>
+          <span class="terminal__title">vasyl_teacher@home: ~</span>
+        </div>
+        <div class="terminal__body">
+          <p class="terminal__line"><span class="terminal__prompt">$</span> python3 teach.py --start</p>
+          <p class="terminal__line terminal__muted">> Налаштовую цікаве навчання...</p>
+          <p class="terminal__line terminal__typed">
+            <span class="terminal__prompt">$</span>
+            <span id="typedOut"></span><span class="typed__cursor"></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="hero__actions hero-anim">
+        <a href="https://t.me/tsyupro" target="_blank" rel="noopener" class="btn btn--primary">Телеграм</a>
+        <a href="#directions" class="btn btn--ghost">Обрати напрямок</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span class="marquee__group">
+        <span class="marquee__item">Python</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">HTML</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">CSS</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">JavaScript</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">C#</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">Unity</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">Алгоритми</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">Логіка</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">Розробка ігор</span>
+      </span>
+      <span class="marquee__group">
+        <span class="marquee__item">Python</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">HTML</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">CSS</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">JavaScript</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">C#</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">Unity</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">Алгоритми</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">Логіка</span><span class="marquee__sep">•</span>
+        <span class="marquee__item">Розробка ігор</span>
+      </span>
+    </div>
+  </div>
+
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section__title reveal">Про мене</h2>
+      <div class="about">
+        <div class="about__text reveal">
+          <p>
+            Мене звати Василь. Вже понад 3 роки навчаю школярів програмування:
+            від перших логічних задач до створення власних проєктів.
+          </p>
+          <p>
+            Моя мета - не просто дати мову програмування, а навчити мислити:
+            розбивати задачу на кроки, шукати рішення та доводити проєкт до кінця.
+          </p>
+          <ul class="about__list">
+            <li>До кожного учня - індивідуальний план і темп</li>
+            <li>Практика з першого заняття, а не нудна теорія</li>
+            <li>Допомога з домашніми та шкільними проєктами</li>
+            <li>Терпляче пояснення складних тем простими словами</li>
+          </ul>
+        </div>
+        <div class="about__facts">
+          <div class="fact reveal">
+            <div class="fact__num" data-counter="3" data-suffix="+">0</div>
+            <div class="fact__label">роки викладання</div>
+          </div>
+          <div class="fact reveal">
+            <div class="fact__num" data-counter="40" data-suffix="+">0</div>
+            <div class="fact__label">учнів за цей час</div>
+          </div>
+          <div class="fact reveal">
+            <div class="fact__num" data-counter="3">0</div>
+            <div class="fact__label">напрямки навчання</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="how">
+    <div class="container">
+      <h2 class="section__title reveal">Як проходить навчання</h2>
+      <div class="steps reveal">
+        <span class="steps__line" aria-hidden="true"></span>
+        <article class="step">
+          <span class="step__num">01</span>
+          <h3>Знайомство</h3>
+          <p>Безкоштовне пробне заняття: знайомимося, оцінюємо рівень та інтереси.</p>
+        </article>
+        <article class="step">
+          <span class="step__num">02</span>
+          <h3>Особистий план</h3>
+          <p>Складаю програму під дитину: темп, напрямок і мета навчання.</p>
+        </article>
+        <article class="step">
+          <span class="step__num">03</span>
+          <h3>Заняття</h3>
+          <p>Практика замість теорії: пишемо код, розбираємо задачі, закріплюємо.</p>
+        </article>
+        <article class="step">
+          <span class="step__num">04</span>
+          <h3>Власний проєкт</h3>
+          <p>Наприкінці курсу учень створює проєкт, яким пишається.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="directions">
+    <div class="container">
+      <h2 class="section__title reveal">Напрямки навчання</h2>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon" aria-hidden="true">Py</div>
+          <h3>Python</h3>
+          <p>
+            Ідеальний старт для новачка. Основи синтаксису, цикли, функції,
+            прості ігри та розв'язування задач. Підготує до ЗНО/НМТ з інформатики.
+          </p>
+          <ul class="card__list">
+            <li>З нуля до власних проєктів</li>
+            <li>Вік: від 10 років</li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon" aria-hidden="true">{ }</div>
+          <h3>Веб-розробка</h3>
+          <p>
+            Створення справжніх сайтів: HTML, CSS, JavaScript.
+            Учень побачить результат своєї роботи в браузері вже на першому занятті.
+          </p>
+          <ul class="card__list">
+            <li>Сайт-візитка як підсумковий проєкт</li>
+            <li>Вік: від 12 років</li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon" aria-hidden="true">U</div>
+          <h3>Ігри на Unity</h3>
+          <p>
+            Навчання через створення ігор: керування персонажем, рівні, механіки.
+            Програмуємо на C#, розвиваємо логіку та творче мислення.
+          </p>
+          <ul class="card__list">
+            <li>Розробка 2D-ігор крок за кроком</li>
+            <li>Вік: від 11 років</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="quiz">
+    <div class="container container--narrow">
+      <h2 class="section__title reveal">Квіз: який напрямок тобі підходить?</h2>
+      <div class="quiz reveal" id="quiz">
+        <div class="quiz__head">
+          <span class="quiz__step" id="quizStepText">1 / 4</span>
+          <div class="quiz__dots" id="quizDots"></div>
+        </div>
+        <h3 class="quiz__question" id="quizQuestion"></h3>
+        <div class="quiz__options" id="quizOptions"></div>
+        <div class="quiz__nav">
+          <button class="quiz__back btn btn--ghost" id="quizBack">Назад</button>
+        </div>
+        <div class="quiz__result" id="quizResult" hidden>
+          <span class="quiz__result-badge">Тобі підходить</span>
+          <h3 id="quizResultTitle"></h3>
+          <p id="quizResultText"></p>
+          <div class="quiz__result-actions">
+            <button class="btn btn--primary" data-open-modal>Записатися на заняття</button>
+            <button class="btn btn--ghost" id="quizRestart">Пройти ще раз</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="format">
+    <div class="container">
+      <h2 class="section__title reveal">Як проходять заняття</h2>
+      <div class="cards cards--wide">
+        <article class="card reveal">
+          <div class="card__icon" aria-hidden="true">1:1</div>
+          <h3>Індивідуально, один на один</h3>
+          <p>
+            Програма і темп під вашу дитину. Повна увага викладача - без групових черг і зайвих пояснень для «всіх».
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon" aria-hidden="true">60</div>
+          <h3>Онлайн 60 хвилин</h3>
+          <p>
+            Заняття в Google Meet або Zoom з демонстрацією екрана та спільною роботою над кодом. Підходить учням із будь-якого міста.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon" aria-hidden="true">✓</div>
+          <h3>Підтримка між заняттями</h3>
+          <p>
+            Домашні завдання з перевіркою, допомога в Telegram між уроками та звіт для батьків про прогрес.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <h2 class="section__title reveal">Тарифи</h2>
+      <div class="pricing">
+        <article class="price reveal">
+          <h3 class="price__name">Пробне заняття</h3>
+          <div class="price__amount">0<span class="price__per">грн</span></div>
+          <ul class="price__features">
+            <li>Знайомство та оцінка рівня</li>
+            <li>Оберемо напрямок разом</li>
+            <li>Без жодних зобов'язань</li>
+          </ul>
+          <button class="btn btn--ghost price__btn" data-open-modal>Записатися</button>
+        </article>
+        <article class="price reveal">
+          <h3 class="price__name">Разове заняття</h3>
+          <div class="price__amount">400<span class="price__per">грн / 60 хв</span></div>
+          <ul class="price__features">
+            <li>Програма під одну дитину</li>
+            <li>Заняття в Google Meet / Zoom</li>
+            <li>Домашні завдання з перевіркою</li>
+            <li>Викладач на зв'язку в Telegram</li>
+          </ul>
+          <button class="btn btn--primary price__btn" data-open-modal>Записатися</button>
+        </article>
+        <article class="price reveal">
+          <h3 class="price__name">Пакет 4 заняття</h3>
+          <div class="price__amount">1500<span class="price__per">грн</span></div>
+          <ul class="price__features">
+            <li>≈ 375 грн за заняття</li>
+            <li>Економія 100 грн</li>
+            <li>Зручний графік на місяць</li>
+          </ul>
+          <button class="btn btn--primary price__btn" data-open-modal>Записатися</button>
+        </article>
+        <article class="price price--popular reveal">
+          <span class="price__badge">Популярний</span>
+          <h3 class="price__name">Пакет 8 занять</h3>
+          <div class="price__amount">2800<span class="price__per">грн</span></div>
+          <ul class="price__features">
+            <li>≈ 350 грн за заняття</li>
+            <li>Економія 400 грн</li>
+            <li>Стабільний розклад на 2 місяці</li>
+            <li>Проміжний звіт для батьків</li>
+          </ul>
+          <button class="btn btn--primary price__btn" data-open-modal>Записатися</button>
+        </article>
+      </div>
+      <p class="pricing__note">
+        Оплата пакетом наперед вигідніша: 4 заняття - 1500 грн, 8 занять - 2800 грн. Пробне заняття безкоштовне.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="gallery">
+    <div class="container">
+      <h2 class="section__title reveal">Що створюють учні</h2>
+      <div class="gallery">
+        <figure class="gallery__item reveal">
+          <div class="gallery__thumb">
+            <img src="photo/Сайт-візитка «Пані Торт».png" alt="Сайт-візитка «Пані Торт»" loading="lazy">
+            <span class="gallery__badge">Web</span>
+          </div>
+          <figcaption><h3>Сайт-візитка «Пані Торт»</h3><p>Перші HTML і CSS</p></figcaption>
+        </figure>
+        <figure class="gallery__item reveal">
+          <div class="gallery__thumb">
+            <img src="photo/Гра «Змійка».png" alt="Гра «Змійка»" loading="lazy">
+            <span class="gallery__badge">Python</span>
+          </div>
+          <figcaption><h3>Гра «Змійка»</h3><p>Логіка, цикли, події</p></figcaption>
+        </figure>
+        <figure class="gallery__item reveal">
+          <div class="gallery__thumb">
+            <img src="photo/Платформер «Кіт-космонавт».png" alt="Платформер «Кіт-космонавт»" loading="lazy">
+            <span class="gallery__badge">Unity</span>
+          </div>
+          <figcaption><h3>Платформер «Кіт-космонавт»</h3><p>Рівні та фізика</p></figcaption>
+        </figure>
+        <figure class="gallery__item reveal">
+          <div class="gallery__thumb">
+            <img src="photo/Сайт для маминого магазину.png" alt="Сайт для маминого магазину" loading="lazy">
+            <span class="gallery__badge">Web</span>
+          </div>
+          <figcaption><h3>Сайт для маминого магазину</h3><p>JavaScript, кошик</p></figcaption>
+        </figure>
+        <figure class="gallery__item reveal">
+          <div class="gallery__thumb">
+            <img src="photo/Бот-помічник для школи.png" alt="Бот-помічник для школи" loading="lazy">
+            <span class="gallery__badge">Python</span>
+          </div>
+          <figcaption><h3>Бот-помічник для школи</h3><p>Telegram API</p></figcaption>
+        </figure>
+        <figure class="gallery__item reveal">
+          <div class="gallery__thumb">
+            <img src="photo/Космічний шутер.png" alt="Космічний шутер" loading="lazy">
+            <span class="gallery__badge">Unity</span>
+          </div>
+          <figcaption><h3>Космічний шутер</h3><p>2D-механіки, рахунок</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews">
+    <div class="container">
+      <h2 class="section__title reveal">Відгуки учнів та батьків</h2>
+      <div class="reviews reveal">
+        <button class="reviews__arrow reviews__arrow--prev" id="revPrev" aria-label="Попередній відгук">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="reviews__viewport">
+          <div class="reviews__track" id="revTrack">
+            <article class="card card--review review">
+              <p class="review__text">
+                Син чекає на кожне заняття. Почали з нуля, а за пів року дитина вже
+                робить власні прості ігри в Python. Дуже раді, що знайшли Василя.
+              </p>
+              <div class="review__author">
+                <span class="review__name">Оксана</span>
+                <span class="review__role">мама учня, 11 років</span>
+              </div>
+            </article>
+            <article class="card card--review review">
+              <p class="review__text">
+                Василь усе пояснює просто і без зайвої термінології. Навіть складні теми
+                стають зрозумілими. Заняття проходять цікаво, майже як гра.
+              </p>
+              <div class="review__author">
+                <span class="review__name">Дмитро</span>
+                <span class="review__role">учень, 13 років</span>
+              </div>
+            </article>
+            <article class="card card--review review">
+              <p class="review__text">
+                Донька навчається робити сайти. Дуже подобається, що є домашні завдання
+                і викладач завжди на зв'язку в Telegram, якщо виникають питання.
+              </p>
+              <div class="review__author">
+                <span class="review__name">Наталія</span>
+                <span class="review__role">мама учениці, 14 років</span>
+              </div>
+            </article>
+            <article class="card card--review review">
+              <p class="review__text">
+                Пройшли квіз на сайті, син сам обрав веб-розробку. Василь втримав цей інтерес,
+                тепер дитина робить сайти із задоволенням.
+              </p>
+              <div class="review__author">
+                <span class="review__name">Ольга</span>
+                <span class="review__role">мама, 10 років</span>
+              </div>
+            </article>
+            <article class="card card--review review">
+              <p class="review__text">
+                Брав уроки Unity, зробив гру про космос, яку показував друзям у школі.
+                Це більше, ніж уроки, це впевненість у собі.
+              </p>
+              <div class="review__author">
+                <span class="review__name">Максим</span>
+                <span class="review__role">учень, 12 років</span>
+              </div>
+            </article>
+          </div>
+        </div>
+        <button class="reviews__arrow reviews__arrow--next" id="revNext" aria-label="Наступний відгук">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="reviews__dots" id="revDots" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="faq">
+    <div class="container container--narrow">
+      <h2 class="section__title reveal">Часті запитання</h2>
+      <div class="faq">
+        <details class="faq__item reveal">
+          <summary>З якого віку можна починати вчитися?</summary>
+          <p>
+            Залежить від напрямку. Python та логіку зазвичай починають з 10 років,
+            веб-розробку - з 12, гри на Unity - з 11. Але все індивідуально,
+            готовність дитини визначається на пробному занятті.
+          </p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Що потрібно для занять?</summary>
+          <p>
+            Комп'ютер або ноутбук із доступом до інтернету. Все програмне забезпечення
+            безкоштовне, допоможу підготувати його перед першим заняттям.
+          </p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Чи є пробне заняття?</summary>
+          <p>
+            Так, перше заняття - знайомство: оцінюємо рівень, визначаємо напрямок,
+            пробуємо формат. Воно безкоштовне.
+          </p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Скільки коштують заняття?</summary>
+          <p>
+            Разове заняття - 400 грн за 60 хвилин. Оплата пакетом вигідніша:
+            4 заняття - 1500 грн, 8 занять - 2800 грн. Пробне заняття безкоштовне.
+          </p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>А що, як дитині не сподобається?</summary>
+          <p>
+            Це нормально. Пробуємо інший напрямок або темп. Головна мета - щоб дитина
+            отримувала задоволення від навчання, тому завжди прислухаюся до її інтересів.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact__inner reveal">
+      <h2 class="contact__title">Готові розпочати?</h2>
+      <p class="contact__text">
+        Напишіть мені - обговоримо напрямок, формат і зручний час першого безкоштовного заняття.
+      </p>
+      <div class="contact__actions">
+        <button class="btn btn--primary btn--lg" data-open-modal>
+          Записатися на заняття
+        </button>
+      </div>
+      <div class="slots">
+        <span class="slots__dot" aria-hidden="true"></span>
+        Цього тижня лишилось <strong>2 вільні слоти</strong>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© 2026 Цюпер Василь</span>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Вгору">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+      <path d="M12 20V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Повідомлення скопійовано</div>
+
+  <div class="modal" id="bookingModal" aria-hidden="true">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" data-close aria-label="Закрити">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <h3 class="modal__title" id="modalTitle">Записатися на заняття</h3>
+      <p class="modal__sub">Заповніть форму - я зв'яжуся з вами в Telegram і підтверджу час.</p>
+      <form id="bookForm" class="form" novalidate>
+        <label class="form__field">
+          Ваше ім'я
+          <input type="text" name="name" required maxlength="60" placeholder="Оксана">
+        </label>
+        <label class="form__field">
+          Вік дитини
+          <input type="number" name="age" min="7" max="18" step="1" required placeholder="11">
+        </label>
+        <label class="form__field">
+          Напрямок
+          <select name="direction" required>
+            <option value="">Оберіть напрямок</option>
+            <option>Python</option>
+            <option>Веб-розробка</option>
+            <option>Ігри на Unity</option>
+            <option>Не визначились, потрібна порада</option>
+          </select>
+        </label>
+        <label class="form__field">
+          Коментар
+          <textarea name="comment" rows="3" maxlength="500" placeholder="Зручний час для заняття..."></textarea>
+        </label>
+        <button class="btn btn--primary btn--lg form__submit" type="submit">Записатися</button>
+        <p class="form__hint">
+          Після натискання з'явиться готове повідомлення - залишиться тільки вставити його в чат.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
