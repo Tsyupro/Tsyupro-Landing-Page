@@ -861,6 +861,15 @@ body {
   border-color: rgba(15, 17, 23, 0.07);
 }
 
+.quiz__noscript {
+  color: var(--text-dim);
+  margin: 0;
+}
+
+.quiz__noscript a {
+  color: var(--accent);
+}
+
 .quiz__head {
   display: flex;
   align-items: center;

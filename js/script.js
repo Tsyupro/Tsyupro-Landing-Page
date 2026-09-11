@@ -28,8 +28,16 @@
     setTimeout(() => preloader.remove(), 600);
   }
 
-  window.addEventListener("load", hidePreloader);
-  setTimeout(hidePreloader, 2500);
+  function schedulePreloaderHide() {
+    setTimeout(hidePreloader, 500);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", schedulePreloaderHide);
+  } else {
+    schedulePreloaderHide();
+  }
+  setTimeout(hidePreloader, 1500);
 
   /* ---------- Scroll: nav, progress, to-top ---------- */
   const nav = document.getElementById("nav");
@@ -394,7 +402,7 @@
     },
   };
 
-  const quizEl = document.getElementById("quiz");
+  const quizEl = document.getElementById("quizCard");
   if (quizEl) {
     const quizStepText = document.getElementById("quizStepText");
     const quizDots = document.getElementById("quizDots");
